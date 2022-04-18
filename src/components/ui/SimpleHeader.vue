@@ -1,5 +1,5 @@
 <template>
-  <header class="--flare-simple-header">
+  <header class="--flare --flare-simple-header">
     <column :mode="mode">
       <block class="--flare-simple-header__content">
         <slot></slot>

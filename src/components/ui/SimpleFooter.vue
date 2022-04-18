@@ -1,5 +1,5 @@
 <template>
-  <footer class="--flare-simple-footer">
+  <footer class="--flare --flare-simple-footer">
     <columns :mode="mode">
       <block>
         <slot></slot>
