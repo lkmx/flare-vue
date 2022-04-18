@@ -1,7 +1,7 @@
 /* eslint-disable import/prefer-default-export */
-export { default as FlareVueSample } from './flare-vue-sample.vue';
 
 export { default as Page } from './structure/Page.vue';
+export { default as Column } from './structure/Columns.vue';
 export { default as Columns } from './structure/Columns.vue';
 export { default as Block } from './structure/Block.vue';
 
