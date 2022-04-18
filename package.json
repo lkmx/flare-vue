@@ -22,7 +22,7 @@
     "postbuild": "rimraf ./dist/types/dev ./dist/types/src/entry.d.ts"
   },
   "dependencies": {
-    "@lkmx/flare": "^0.5.4"
+    "@lkmx/flare": "^0.5.6"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
