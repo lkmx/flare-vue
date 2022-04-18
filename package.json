@@ -1,6 +1,6 @@
 {
   "name": "@lkmx/flare-vue",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "main": "dist/flare-vue.ssr.js",
   "browser": "dist/flare-vue.esm.js",
