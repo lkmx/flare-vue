@@ -1,14 +1,14 @@
 import '@lkmx/flare';
 
-import Page from "./structure/Page.vue";
-import Columns from "./structure/Columns.vue";
-import Block from "./structure/Block.vue";
+import Page from "./src/structure/Page.vue";
+import Columns from "./src/structure/Columns.vue";
+import Block from "./src/structure/Block.vue";
 
-import SimpleLayout from "./ui/layouts/SimpleLayout.vue";
-import SidebarLayout from "./ui/layouts/SideBarLayout.vue";
+import SimpleLayout from "./src/ui/layouts/SimpleLayout.vue";
+import SidebarLayout from "./src/ui/layouts/SideBarLayout.vue";
 
-import SimpleHeader from "./ui/basic/SimpleHeader.vue";
-import SimpleFooter from "./ui/basic/SimpleFooter.vue";
+import SimpleHeader from "./src/ui/basic/SimpleHeader.vue";
+import SimpleFooter from "./src/ui/basic/SimpleFooter.vue";
 
 
 const components = {
