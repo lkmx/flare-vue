@@ -5,49 +5,62 @@
 </template>
 
 <script>
+
 export default {
   // This method processes the mark up passed to the component
   // and adds the anonymous blocks wherever is necessary
   created() {
-    if(this.$el) {
-      for (let i = 0; i < this.$el.children.length; i++) {
-        const node = this.$el.children[i];
-
-        for (let breakpoint in this.numbers) {
-          const colNumber = this.numbers[breakpoint];
-          
-          if ((i % colNumber) < colNumber / 2) {
-            node.classList.add(`--flare-block--${breakpoint}-left`);
+    this.process();
+  },
+  mounted() {
+    this.process();
+  },
+  updated() {
+    this.process();
+  },
+  methods: {
+    process() {
+      this.tagBlocks();
+    },
+    tagBlocks() {
+      if(this.$el) {
+        for (let i = 0; i < this.$el.children.length; i++) {
+          const node = this.$el.children[i];
+          for (let breakpoint in this.numbers) {
+            const colNumber = this.numbers[breakpoint];
+            if(colNumber == 2 && (this.weight == "left" || this.weight == "right")) {
+              //console.log(i, this.weight, breakpoint);
+            }
+            if(colNumber == 3 && this.weight == "middle") {
+              //console.log(i, this.weight, breakpoint);
+            }
+            if ((i % colNumber) < colNumber / 2) {
+              node.classList.add(`--flare-block--${breakpoint}-left`);
+            }
+           if ((i % colNumber) >=  colNumber / 2) {
+              node.classList.add(`--flare-block--${breakpoint}-right`);
+            }
+            if (colNumber % 2 > 0 && i == Math.floor(colNumber / 2)) {
+              node.classList.remove(`--flare-block--${breakpoint}-left`);
+              node.classList.remove(`--flare-block--${breakpoint}-right`);
+              node.classList.add(`--flare-block--${breakpoint}-middle`);
+            }
+            if (colNumber == 1) {
+              node.classList.remove(`--flare-block--${breakpoint}-left`);
+              node.classList.remove(`--flare-block--${breakpoint}-right`);
+              node.classList.remove(`--flare-block--${breakpoint}-middle`);
+              node.classList.add(`--flare-block--${breakpoint}-single`);
+            } else {
+              node.classList.remove(`--flare-block--${breakpoint}-single`);
+            }
           }
-
-          if ((i % colNumber) >=  colNumber / 2) {
-            node.classList.add(`--flare-block--${breakpoint}-right`);
-          }
-
-          if (colNumber % 2 > 0 && i == Math.floor(colNumber / 2)) {
-            node.classList.remove(`--flare-block--${breakpoint}-left`);
-            node.classList.remove(`--flare-block--${breakpoint}-right`);
-            node.classList.add(`--flare-block--${breakpoint}-middle`);
-          }
-
-          if (colNumber == 1) {
-            node.classList.remove(`--flare-block--${breakpoint}-left`);
-            node.classList.remove(`--flare-block--${breakpoint}-right`);
-            node.classList.remove(`--flare-block--${breakpoint}-middle`);
-            node.classList.add(`--flare-block--${breakpoint}-single`);
-          } else {
-            node.classList.remove(`--flare-block--${breakpoint}-single`);
-          }
-
         }
       }
-    }
+    },
   },
-
   computed: {
     classes() {
       return [
-
         // This could be done itearating the array but
         // explicit mode here is preferred 
         "--flare-columns--xxs-mode-" + this.modes["xxs"],
@@ -58,7 +71,6 @@ export default {
         "--flare-columns--xl-mode-" + this.modes["xl"],
         "--flare-columns--xxl-mode-" + this.modes["xxl"],
         "--flare-columns--xxxl-mode-" + this.modes["xxxl"],
-
         "--flare-columns--xxs-" + this.numbers["xxs"],
         "--flare-columns--xs-" + this.numbers["xs"],
         "--flare-columns--s-" + this.numbers["s"],
@@ -67,7 +79,6 @@ export default {
         "--flare-columns--xl-" + this.numbers["xl"],
         "--flare-columns--xxl-" + this.numbers["xxl"],
         "--flare-columns--xxxl-" + this.numbers["xxxl"],
-
         "--flare-weight--xxs-" + this.weights["xxs"],
         "--flare-weight--xs-" + this.weights["xs"],
         "--flare-weight--s-" + this.weights["s"],
@@ -88,10 +99,8 @@ export default {
         "--f-columns-number-xl": this.numbers["xl"],
         "--f-columns-number-xxl": this.numbers["xxl"],
         "--f-columns-number-xxxl": this.numbers["xxxl"],
-
       };
     },
-
     modes() {
       return {
         "xxs": this.modeXxs || this.modeXs || this.modeS || this.mode,
@@ -104,7 +113,6 @@ export default {
         "xxxl": this.modeXxxl || this.modeXxl || this.modeXl || this.modeL || this.mode,
       }
     },
-
     numbers() {
       return {
         "xxs": this.numberXxs || this.numberXs || this.numberS || this.number,
@@ -117,7 +125,6 @@ export default {
         "xxxl": this.numberXxxl || this.numberXxl || this.numberXl || this.numberL || this.number,
       }
     },
-
     weights() {
       return {
         "xxs": this.weightXxs || this.weightXs || this.weightS || this.weight,
@@ -131,7 +138,6 @@ export default {
       }
     },
   },
-
   name: "Columns",
   props: {
     mode: {
@@ -179,7 +185,6 @@ export default {
       default: null,
       required: false,
     },
-
     number: {
       type: String,
       default: "1",
@@ -225,7 +230,6 @@ export default {
       default: null,
       required: false,
     },
-
     // Weights
     weight: {
       type: String,
@@ -274,4 +278,6 @@ export default {
     },
   },
 };
+
+
 </script>
