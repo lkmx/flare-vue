@@ -9,39 +9,53 @@ export default {
   // This method processes the mark up passed to the component
   // and adds the anonymous blocks wherever is necessary
   created() {
-    if(this.$el) {
-      for (let i = 0; i < this.$el.children.length; i++) {
-        const node = this.$el.children[i];
+    this.process();
+  },
+  mounted() {
+    this.process();
+  },
+  updated() {
+    this.process();
+  },
+  methods: {
+    process() {
+      this.tagBlocks();
+    },
+    tagBlocks() {
+      if(this.$el) {
+        for (let i = 0; i < this.$el.children.length; i++) {
+          const node = this.$el.children[i];
 
-        for (let breakpoint in this.numbers) {
-          const colNumber = this.numbers[breakpoint];
-          
-          if ((i % colNumber) < colNumber / 2) {
-            node.classList.add(`--flare-block--${breakpoint}-left`);
+          for (let breakpoint in this.numbers) {
+            const colNumber = this.numbers[breakpoint];
+            
+            if ((i % colNumber) < colNumber / 2) {
+              node.classList.add(`--flare-block--${breakpoint}-left`);
+            }
+
+            if ((i % colNumber) >=  colNumber / 2) {
+              node.classList.add(`--flare-block--${breakpoint}-right`);
+            }
+
+            if (colNumber % 2 > 0 && i == Math.floor(colNumber / 2)) {
+              node.classList.remove(`--flare-block--${breakpoint}-left`);
+              node.classList.remove(`--flare-block--${breakpoint}-right`);
+              node.classList.add(`--flare-block--${breakpoint}-middle`);
+            }
+
+            if (colNumber == 1) {
+              node.classList.remove(`--flare-block--${breakpoint}-left`);
+              node.classList.remove(`--flare-block--${breakpoint}-right`);
+              node.classList.remove(`--flare-block--${breakpoint}-middle`);
+              node.classList.add(`--flare-block--${breakpoint}-single`);
+            } else {
+              node.classList.remove(`--flare-block--${breakpoint}-single`);
+            }
+
           }
-
-          if ((i % colNumber) >=  colNumber / 2) {
-            node.classList.add(`--flare-block--${breakpoint}-right`);
-          }
-
-          if (colNumber % 2 > 0 && i == Math.floor(colNumber / 2)) {
-            node.classList.remove(`--flare-block--${breakpoint}-left`);
-            node.classList.remove(`--flare-block--${breakpoint}-right`);
-            node.classList.add(`--flare-block--${breakpoint}-middle`);
-          }
-
-          if (colNumber == 1) {
-            node.classList.remove(`--flare-block--${breakpoint}-left`);
-            node.classList.remove(`--flare-block--${breakpoint}-right`);
-            node.classList.remove(`--flare-block--${breakpoint}-middle`);
-            node.classList.add(`--flare-block--${breakpoint}-single`);
-          } else {
-            node.classList.remove(`--flare-block--${breakpoint}-single`);
-          }
-
         }
       }
-    }
+    },
   },
 
   computed: {
