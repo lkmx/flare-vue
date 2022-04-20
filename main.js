@@ -1,5 +1,3 @@
-import "@lkmx/flare";
-
 import Page from "./src/structure/Page.vue";
 import Columns from "./src/structure/Columns.vue";
 import Block from "./src/structure/Block.vue";

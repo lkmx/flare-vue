@@ -1,6 +1,6 @@
 {
   "name": "@lkmx/flare-vue",
-  "version": "0.1.16",
+  "version": "0.1.15",
   "description": "Vue components that implement the Flare paradigm.",
   "main": "main.js",
   "scripts": {
@@ -25,8 +25,6 @@
   },
   "peerDependencies": {
     "@lkmx/flare": "^0.5.6",
-    "vue": "^3.2.33",
-    "sass": "^1.50.0",
-    "sass-loader": "^12.6.0"
+    "vue": "^3.2.33"
   }
 }
