@@ -1,7 +1,7 @@
 # Contents
 ---
 - [Documentation](#documentation)
-- [Development](#development)
+- [How to use](#how-to-use)
   - [Scaffold your project](#scaffold-your-project)
   - [Add Flare Vue dependencie](#add-flare-vue-dependencie)
   - [Installing dependencies](#installing-dependencies)
@@ -17,7 +17,7 @@ Flare Vue combines the core Flare features with the tooling that are tailored to
 
 Flare Vue is built on top of Vue 3.0.0.
 
-# Development
+# How to use
 
 Prerequisites:
 
