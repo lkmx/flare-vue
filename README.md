@@ -7,6 +7,7 @@
   - [Installing dependencies](#installing-dependencies)
   - [Configuring Flare](#configuring-flare)
     - [Importing dependencies](#importing-dependencies)
+    - [Running the project](#running-the-project)
     - [Creating a template](#creating-a-template)
 - [Build](#build)
 - [Deployment](#deployment)
@@ -65,6 +66,13 @@ app.use(FlareVue)
 ```
 
 To avoid any unexpected behavior, delete all styles from ```.src/App.vue```
+
+### Running the project
+
+With NPM:
+```
+npm run dev
+```
 
 ### Creating a template
 
