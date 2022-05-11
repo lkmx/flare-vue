@@ -1,16 +1,10 @@
-# Contents
+# Flare-Vue
 ---
 - [Documentation](#documentation)
-- [How to use](#how-to-use)
-  - [Scaffold your project](#scaffold-your-project)
-  - [Add Flare Vue dependencie](#add-flare-vue-dependencie)
-  - [Installing dependencies](#installing-dependencies)
-  - [Configuring Flare](#configuring-flare)
-    - [Importing dependencies](#importing-dependencies)
-    - [Running the project](#running-the-project)
-    - [Creating a template](#creating-a-template)
-- [Build](#build)
-- [Deployment](#deployment)
+- [Install](#install)
+- [Vite Configuration](#vite-configuration)
+- [Nuxt Configuration](#nuxt-configuration)
+- [Creating a template](#creating-a-template)
 
 # Documentation
 
@@ -18,13 +12,22 @@ Flare Vue combines the core Flare features with the tooling that are tailored to
 
 Flare Vue is built on top of Vue 3.0.0.
 
-# How to use
+# Install
 
 Prerequisites:
 
 - Node.js version >=12.2.0 
 
-## Scaffold your project
+### Add Flare Vue dependencie
+
+Add Flare Vue to dev dependencies
+
+With NPM:
+```
+npm add @lkmx/flare-vue
+```
+
+## Vite configuration
 
 Use [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) to quickly scaffold your project.
 
@@ -34,47 +37,53 @@ With NPM:
 npm create vite@latest my-vue-app -- --template vue
 ```
 
-## Add Flare Vue dependencie
-
-Add Flare Vue to dev dependencies
-
-With NPM:
-```
-npm add @lkmx/flare-vue
-```
-
-## Installing dependencies
-
-With NPM:
-```
-npm install
-```
-
-## Configuring Flare
-
-### Importing dependencies
+#### Importing dependencies
 
 Import into ```main.js``` Flare dependencies
 
 ```
+import { createApp } from 'vue'
+import App from './App.vue'
 import Flare from "@lkmx/flare";
 import FlareVue from "@lkmx/flare-vue";
 
-app.use(Flare)
-app.use(FlareVue)
+createApp(App)
+    .use(Flare)
+    .use(FlareVue)
+    .mount('#app');
 
 ```
 
 To avoid any unexpected behavior, delete all styles from ```.src/App.vue```
 
-### Running the project
+## Nuxt Configuration
+
+Use [Nuxt](https://v3.nuxtjs.org/) to quickly scaffold your project
 
 With NPM:
 ```
-npm run dev
+npx nuxi init nuxt-app
+```
+### Importing dependencies
+
+Import into ```nuxt.config.ts``` Flare dependencies
+
+```
+import { defineNuxtConfig } from 'nuxt'
+import { resolve } from 'path';
+
+export default defineNuxtConfig({
+    target: 'static',
+    buildModules: ['@lkmx/flare-vue/nuxt.js'],
+    css: ['@lkmx/flare'],
+    alias: {
+        '@': resolve(__dirname, './')
+    }
+})
+
 ```
 
-### Creating a template
+## Creating a template
 
 Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled 
 
@@ -92,9 +101,3 @@ Assembling a minimal structure with Flare requires the use of their core element
   </simple-layout>
 </template>
 ```
-
-# Build
-Use ```npm run build``` to generate static files in a ```/dist``` folder
-
-# Deployment
-TBD
