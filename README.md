@@ -1,10 +1,13 @@
 # Flare-Vue
 ---
 - [Documentation](#documentation)
-- [Install](#install)
-- [Vite Configuration](#vite-configuration)
-- [Nuxt Configuration](#nuxt-configuration)
-- [Creating a template](#creating-a-template)
+  - [SPA: Vite](#vite-configuration)
+    - [Create project](#create-project)
+    - [Install Flare](#install-flare)
+  - [SSR/SSG: NuxtJS](#nuxt-configuration)
+    - [Creating a template](#creating-a-template)
+- [Development](#development)
+
 
 # Documentation
 
