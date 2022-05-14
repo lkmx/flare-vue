@@ -2,12 +2,15 @@
 - [Flare-Vue](#flare-vue)
 - [Documentation](#documentation)
   - [SPA: Vite](#spa-vite)
+    - [Prerequisites](#prerequisites)
     - [Create project](#create-project)
     - [Install Flare](#install-flare)
     - [Create first page](#create-first-page)
-  - [Nuxt Configuration](#nuxt-configuration)
-    - [Importing dependencies](#importing-dependencies)
-  - [Creating a template](#creating-a-template)
+  - [SSR/SSG: NuxtJS](#ssrssg-nuxtjs)
+    - [Prerequisites](#prerequisites-1)
+    - [Create a new project](#create-a-new-project)
+    - [Install Flare](#install-flare-1)
+    - [Create first page](#create-first-page-1)
 
 
 # Documentation
@@ -17,31 +20,32 @@ Flare-Vue combines the core Flare features with the tooling that are tailored to
 Flare-Vue is built on top of Vue 3.0.0.
 
 ## SPA: Vite
+
 Use [Vite](https://vitejs.dev/guide/#scaffolding-your-first-vite-project) to quickly scaffold your project.
+
+### Prerequisites
+
+- Node.js version >= 12.2.0 
 
 ### Create project
 
-Prerequisites:
-- Node.js version >=12.2.0 
-
-
-With NPM:
+With Yarn:
 
 ```
-npm create vite@latest my-vue-app -- --template vue
+yarn create vite my-vue-app --template vue
 ```
 
 ### Install Flare
 
-Add Flare-Vue to dev dependencies
+Add Flare-Vue to dev dependencies.
 
-With NPM:
+With Yarn:
 ```
-npm add @lkmx/flare-vue
-npm install
+yarn add @lkmx/flare-vue
+yarn install
 ```
 
-Import into ```main.js``` Flare dependencies
+Import into ```main.js``` Flare dependencies.
 
 ```
 import { createApp } from 'vue'
@@ -55,16 +59,16 @@ createApp(App)
     .mount('#app');
 ```
 
-To avoid any unexpected behavior, delete all styles from ```.src/App.vue```
+To avoid any unexpected behavior, delete all styles from ```.src/App.vue```.
 
-Run the proyect
+Run the proyect:
 ```
-npm run dev
+yarn run dev
 ```
 
 ### Create first page
 
-Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled 
+Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled.
 
 ```
 <template>
@@ -81,17 +85,32 @@ Assembling a minimal structure with Flare requires the use of their core element
 </template>
 ```
 
-## Nuxt Configuration
+## SSR/SSG: NuxtJS
 
-Use [Nuxt](https://v3.nuxtjs.org/) to quickly scaffold your project
+Use [Nuxt](https://v3.nuxtjs.org/) to quickly scaffold your project.
 
-With NPM:
+
+### Prerequisites
+
+- Node.js 14 or 16.
+
+### Create a new project
+
 ```
 npx nuxi init nuxt-app
 ```
-### Importing dependencies
 
-Import into ```nuxt.config.ts``` Flare dependencies
+### Install Flare
+
+Add Flare-Vue to dev dependencies.
+
+With Yarn:
+```
+yarn add @lkmx/flare-vue
+yarn install
+```
+
+Import into ```nuxt.config.ts``` Flare dependencies.
 
 ```
 import { defineNuxtConfig } from 'nuxt'
@@ -105,12 +124,17 @@ export default defineNuxtConfig({
         '@': resolve(__dirname, './')
     }
 })
-
 ```
 
-## Creating a template
+To avoid any unexpected behavior, delete all styles from ```.src/App.vue```.
 
-Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled 
+Run the proyect:
+```
+yarn run dev
+```
+### Create first page
+
+Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled.
 
 ```
 <template>
