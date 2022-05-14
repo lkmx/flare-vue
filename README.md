@@ -11,6 +11,7 @@
     - [Create a new project](#create-a-new-project)
     - [Install Flare](#install-flare-1)
     - [Create first page](#create-first-page-1)
+- [Development](#development)
 
 
 # Documentation
@@ -150,3 +151,7 @@ Assembling a minimal structure with Flare requires the use of their core element
   </simple-layout>
 </template>
 ```
+
+# Development
+
+Pending
