@@ -5,7 +5,7 @@
 </template>
 <script>
 export default {
-  beforeCreate() {
+  beforeMount() {
     document.body.classList.add('--flare-hidden')
   },
   mounted() {
