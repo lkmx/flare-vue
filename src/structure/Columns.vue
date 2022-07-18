@@ -37,7 +37,7 @@ export default {
               node.classList.add(`--flare-block--${breakpoint}-right`);
             }
 
-            if (colNumber % 2 > 0 && i == Math.floor(colNumber / 2)) {
+            if (this.isMiddleColumn(i, colNumber)) {
               node.classList.remove(`--flare-block--${breakpoint}-left`);
               node.classList.remove(`--flare-block--${breakpoint}-right`);
               node.classList.add(`--flare-block--${breakpoint}-middle`);
@@ -56,6 +56,14 @@ export default {
         }
       }
     },
+    isMiddleColumn(indexColumn, totalColumns) {
+      if (totalColumns % 2 < 1)
+        return false
+      let rowNumber = Math.floor(indexColumn / totalColumns);
+      let reduceNumber = rowNumber * totalColumns;
+      let indexByRow = indexColumn - reduceNumber;
+      return indexByRow == Math.floor(totalColumns / 2);
+    }
   },
 
   computed: {
