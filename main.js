@@ -20,6 +20,9 @@ const components = {
   SimpleFooter,
 };
 
+// Changes body opacity to 0, this class is removed on Page component
+document.body.classList.add('--flare-hidden');
+
 export default {
   install(Vue) {
     for (const name in components) {

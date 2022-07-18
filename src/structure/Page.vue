@@ -5,11 +5,8 @@
 </template>
 <script>
 export default {
-  beforeMount() {
-    document.body.classList.add('--flare-hidden')
-  },
   mounted() {
-    document.body.classList.remove('--flare-hidden')
+    document.body.classList.remove('--flare-hidden');
   }
 }
 </script>
