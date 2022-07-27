@@ -1,6 +1,6 @@
 {
   "name": "@lkmx/flare-vue",
-  "version": "0.1.18",
+  "version": "0.1.22",
   "description": "Vue components that implement the Flare paradigm.",
   "main": "main.js",
   "scripts": {

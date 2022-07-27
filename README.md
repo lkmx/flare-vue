@@ -5,11 +5,13 @@
     - [Prerequisites](#prerequisites)
     - [Create project](#create-project)
     - [Install Flare](#install-flare)
+    - [Create base layout](#create-base-layout)
     - [Create first page](#create-first-page)
   - [SSR/SSG: NuxtJS](#ssrssg-nuxtjs)
     - [Prerequisites](#prerequisites-1)
     - [Create a new project](#create-a-new-project)
     - [Install Flare](#install-flare-1)
+    - [Create base layout](#create-base-layout-1)
     - [Create first page](#create-first-page-1)
 - [Development](#development)
 
@@ -67,13 +69,70 @@ Run the proyect:
 yarn run dev
 ```
 
+### Create base layout
+
+Create into ```src/components``` directory the following components:
+
+```SimpleHeader.vue```
+```
+<template>
+  <header>
+    <Block>
+      <h1>Header</h1>
+    </Block>
+  </header>
+</template>
+```
+
+```SimpleFooter.vue```
+```
+<template>
+  <header>
+    <Block>
+      <h1>Footer</h1>
+    </Block>
+  </header>
+</template>
+```
+
+```BaseLayout.vue```
+
+```
+<template>
+  <div class="base-layout">
+    <simple-header></simple-header>
+    <main>
+      <slot></slot>
+    </main>
+    <simple-footer></simple-footer>
+  </div>
+</template>
+
+<script>
+import SimpleHeader from './SimpleHeader.vue';
+import SimpleFooter from './SimpleFooter.vue';
+
+export default {
+  components: { SimpleHeader, SimpleFooter }
+}
+</script>
+
+<style scoped>
+.base-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+</style>
+```
+
 ### Create first page
 
 Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled.
 
 ```
 <template>
-  <simple-layout>
+  <base-layout>
     <Page>
       <Columns>
         <Block>
@@ -82,8 +141,16 @@ Assembling a minimal structure with Flare requires the use of their core element
         </Block>
       </Columns>
     </Page>
-  </simple-layout>
+  </base-layout>
 </template>
+
+<script>
+import BaseLayout from './BaseLayout.vue';
+
+export default {
+  components: {BaseLayout}
+}
+</script>
 ```
 
 ## SSR/SSG: NuxtJS
@@ -123,6 +190,10 @@ export default defineNuxtConfig({
     css: ['@lkmx/flare'],
     alias: {
         '@': resolve(__dirname, './')
+    },
+    components: {
+        global: true,
+        dirs: ['~/components']
     }
 })
 ```
@@ -133,13 +204,62 @@ Run the proyect:
 ```
 yarn run dev
 ```
+
+### Create base layout
+
+Create into ```src/components``` directory the following components:
+
+```SimpleHeader.vue```
+```
+<template>
+  <header>
+    <Block>
+      <h1>Header</h1>
+    </Block>
+  </header>
+</template>
+```
+
+```SimpleFooter.vue```
+```
+<template>
+  <header>
+    <Block>
+      <h1>Footer</h1>
+    </Block>
+  </header>
+</template>
+```
+
+```BaseLayout.vue```
+
+```
+<template>
+  <div class="base-layout">
+    <simple-header></simple-header>
+    <main>
+      <slot></slot>
+    </main>
+    <simple-footer></simple-footer>
+  </div>
+</template>
+
+<style scoped>
+.base-layout {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+</style>
+```
+
 ### Create first page
 
 Assembling a minimal structure with Flare requires the use of their core elements, from there, any page could be styled.
 
 ```
 <template>
-  <simple-layout>
+  <base-layout>
     <Page>
       <Columns>
         <Block>
@@ -148,7 +268,7 @@ Assembling a minimal structure with Flare requires the use of their core element
         </Block>
       </Columns>
     </Page>
-  </simple-layout>
+  </base-layout>
 </template>
 ```
 
