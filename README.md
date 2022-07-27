@@ -207,7 +207,7 @@ yarn run dev
 
 ### Create base layout
 
-Create into ```src/components``` directory the following components:
+Create into ```components``` directory the following components:
 
 ```SimpleHeader.vue```
 ```
