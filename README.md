@@ -77,9 +77,12 @@ Create into ```src/components``` directory the following components:
 ```
 <template>
   <header>
-    <Block>
-      <h1>Header</h1>
-    </Block>
+    <Columns>
+      <Block>
+        <h1>Footer</h1>
+        <h1>Header</h1>
+      </Block>
+    </Columns>
   </header>
 </template>
 ```
@@ -87,11 +90,13 @@ Create into ```src/components``` directory the following components:
 ```SimpleFooter.vue```
 ```
 <template>
-  <header>
-    <Block>
-      <h1>Footer</h1>
-    </Block>
-  </header>
+  <footer>
+    <Columns>
+      <Block>
+        <h1>Footer</h1>
+      </Block>
+    </Columns>
+  </footer>
 </template>
 ```
 
@@ -213,9 +218,11 @@ Create into ```components``` directory the following components:
 ```
 <template>
   <header>
-    <Block>
-      <h1>Header</h1>
-    </Block>
+    <Columns>
+      <Block>
+        <h1>Header</h1>
+      </Block>
+    </Columns>
   </header>
 </template>
 ```
@@ -223,11 +230,13 @@ Create into ```components``` directory the following components:
 ```SimpleFooter.vue```
 ```
 <template>
-  <header>
-    <Block>
-      <h1>Footer</h1>
-    </Block>
-  </header>
+  <footer>
+    <Columns>
+      <Block>
+        <h1>Footer</h1>
+      </Block>
+    </Columns>
+  </footer>
 </template>
 ```
 
